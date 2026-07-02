@@ -473,6 +473,135 @@ section {
   pointer-events: none;
 }
 
+/* ---- Broschüre / Prospekt-Download ------------------------------------------------ */
+.brochure .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+@media (min-width: 1120px) {
+  .brochure .container {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-80);
+  }
+}
+
+.brochure__visual {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1120px) {
+  .brochure__visual {
+    flex: 1;
+  }
+}
+
+.brochure__stack {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  padding-block: var(--space-32);
+}
+
+.brochure__page {
+  height: auto;
+  border-radius: var(--radius-12);
+  border: 1px solid var(--color-border-default);
+}
+
+.brochure__page--front {
+  position: relative;
+  display: block;
+  width: 78%;
+  margin-inline: auto;
+  box-shadow: var(--elevation-lg);
+  transform: rotate(-7deg);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.brochure__page--back {
+  position: absolute;
+  top: 8%;
+  right: 4%;
+  width: 70%;
+  box-shadow: var(--elevation-md);
+  transform: rotate(10deg);
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.brochure__stack:hover .brochure__page--front {
+  transform: rotate(-3deg);
+}
+
+.brochure__stack:hover .brochure__page--back {
+  transform: rotate(6deg);
+}
+
+.brochure__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-20);
+}
+
+@media (min-width: 1120px) {
+  .brochure__content {
+    flex: 1;
+  }
+}
+
+.brochure__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.brochure__highlight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.brochure__highlight-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-14);
+  background: var(--color-bg-success);
+  flex-shrink: 0;
+}
+
+.brochure__highlight-icon img {
+  width: 14px;
+  height: 14px;
+}
+
+.brochure__highlight p {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.brochure__meta {
+  margin-top: var(--space-8);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brochure__page--front,
+  .brochure__page--back {
+    transition: none;
+  }
+}
+
 /* ---- Testimonials grid ---------------------------------------------------------- */
 .testimonials-grid {
   display: grid;
@@ -649,6 +778,59 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+}
+
+/* ---- Social Follow ---------------------------------------------------------------------------------- */
+.social-follow__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-24);
+  max-width: 32rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.social-follow__title {
+  font-size: var(--text-3xl);
+}
+
+.social-follow__text {
+  color: var(--color-text-secondary);
+}
+
+.social-follow__icons {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-default);
+  box-shadow: var(--elevation-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.social-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.social-icon:hover,
+.social-icon:focus-visible {
+  background: var(--color-bg-brand);
+  box-shadow: var(--elevation-md);
+  transform: translateY(-4px);
+}
+
+.social-icon:hover img,
+.social-icon:focus-visible img {
+  filter: brightness(0) invert(1);
 }
 
 /* ---- Footer --------------------------------------------------------------------------------------- */

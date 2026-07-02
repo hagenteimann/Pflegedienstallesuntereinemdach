@@ -177,6 +177,31 @@ textarea:focus-visible {
   transition-delay: 350ms;
 }
 
+.social-follow__icons > .reveal:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.social-follow__icons > .reveal:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.social-follow__icons > .reveal:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+/* Social-Icons "fliegen" staerker ins Bild als der generische Reveal:
+   groesserer Weg, Skalierung und ein Overshoot-Easing statt sanftem Ease-out. */
+.social-icon.reveal {
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-icon.reveal.reveal--pending {
+  opacity: 0;
+  transform: translateY(40px) scale(0.4);
+  filter: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

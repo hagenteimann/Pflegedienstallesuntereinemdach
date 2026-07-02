@@ -107,4 +107,109 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* Chat-Widget: statisches Mini-Panel mit Menü, Rückruf-Formular und Demo-Chat.
+     Kein Backend/echter Bot — Formular und Chat-Antwort sind reines Client-Side-Demo-Handling. */
+  const chatWidget = document.querySelector('.chat-widget');
+  const chatToggle = document.querySelector('.chat-widget__toggle');
+  const chatPanel = document.querySelector('.chat-widget__panel');
+  if (chatWidget && chatToggle && chatPanel) {
+    const chatBack = chatPanel.querySelector('.chat-widget__back');
+    const chatViews = chatPanel.querySelectorAll('[data-chat-view]');
+
+    const showChatView = (name) => {
+      chatViews.forEach((view) => {
+        view.hidden = view.dataset.chatView !== name;
+      });
+      if (chatBack) chatBack.hidden = name === 'home';
+    };
+
+    const closeChat = () => {
+      chatPanel.hidden = true;
+      chatToggle.setAttribute('aria-expanded', 'false');
+      showChatView('home');
+    };
+    const openChat = () => {
+      chatPanel.hidden = false;
+      chatToggle.setAttribute('aria-expanded', 'true');
+    };
+
+    chatToggle.addEventListener('click', () => {
+      if (chatPanel.hidden) {
+        openChat();
+      } else {
+        closeChat();
+      }
+    });
+
+    chatPanel.querySelector('.chat-widget__close')?.addEventListener('click', () => {
+      closeChat();
+      chatToggle.focus();
+    });
+
+    chatBack?.addEventListener('click', () => showChatView('home'));
+
+    chatPanel.querySelectorAll('[data-chat-goto]').forEach((button) => {
+      button.addEventListener('click', () => showChatView(button.dataset.chatGoto));
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!chatPanel.hidden && !chatWidget.contains(event.target)) {
+        closeChat();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !chatPanel.hidden) {
+        closeChat();
+        chatToggle.focus();
+      }
+    });
+
+    /* Aktionen, die von der Seite weg navigieren (Kontakt, Anrufen, Standorte) schliessen den Chat */
+    chatPanel.querySelectorAll('.chat-widget__action[href]').forEach((link) => {
+      link.addEventListener('click', closeChat);
+    });
+
+    /* Rückruf-Formular: Demo-Handling ohne Backend */
+    const callbackForm = document.getElementById('callbackForm');
+    if (callbackForm) {
+      callbackForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const status = callbackForm.querySelector('.chat-widget__form-status');
+        if (status) {
+          status.textContent = 'Danke! Wir rufen Sie werktags zeitnah zurück.';
+        }
+        callbackForm.reset();
+      });
+    }
+
+    /* Demo-Chat: feste Antwort statt echter KI/Backend-Anbindung */
+    const chatMessageForm = document.getElementById('chatMessageForm');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatMessageInput = document.getElementById('chatMessageInput');
+    if (chatMessageForm && chatMessages && chatMessageInput) {
+      const addBubble = (text, from) => {
+        const bubble = document.createElement('p');
+        bubble.className = `chat-bubble chat-bubble--${from}`;
+        bubble.textContent = text;
+        chatMessages.appendChild(bubble);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      };
+
+      chatMessageForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const value = chatMessageInput.value.trim();
+        if (!value) return;
+        addBubble(value, 'user');
+        chatMessageInput.value = '';
+        window.setTimeout(() => {
+          addBubble(
+            'Vielen Dank für Ihre Nachricht! Für eine individuelle Beratung zu unseren Leistungen füllen Sie gerne unser Kontaktformular aus oder rufen Sie uns direkt an — wir melden uns werktags innerhalb von 24 Stunden.',
+            'bot'
+          );
+        }, 500);
+      });
+    }
+  }
 });
