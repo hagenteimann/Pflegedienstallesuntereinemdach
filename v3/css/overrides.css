@@ -1,0 +1,253 @@
+/* ==========================================================================
+   VERSION 3 — OVERRIDES
+   Nur additive Klassen fuer moderne Layout-Patterns (Mesh-Hero, Bento-Grid,
+   Dark-Section, Hover-Microinteractions). Bestehende Klassen aus
+   components.css / layout.css werden NICHT umdefiniert.
+   ========================================================================== */
+
+/* ---- Hero v3: Mesh-Hintergrund + zentrierte, groessere Headline ---------- */
+.hero-v3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-v3 .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dekorativer Gradient-Mesh-Hintergrund in Teal-Tinten. Rein dekorativ,
+   aria-hidden, liegt hinter dem Content — veraendert keine Lese-/Fokusreihenfolge. */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 15% 20%, var(--palette-brand-100) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, var(--palette-brand-50) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, var(--palette-brand-100) 0%, transparent 55%);
+  opacity: 0.9;
+}
+
+.hero-v3__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  text-align: center;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-block: var(--space-32) 0;
+}
+
+.hero-v3__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  align-items: center;
+}
+
+/* Groessere Desktop-Typo-Stufe (nutzt die v3-eigene --text-6xl), bleibt aber
+   ueber die bestehende .hero__title-Basis aus layout.css responsive klein auf Mobile. */
+@media (min-width: 1120px) {
+  .hero-v3 .hero__title {
+    font-size: var(--text-6xl);
+    max-width: 44rem;
+  }
+}
+
+.hero-v3 .hero__lede {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+
+.hero-v3 .hero__actions {
+  justify-content: center;
+}
+
+.hero-v3 .hero__locations {
+  justify-content: center;
+}
+
+/* Grosses, volles Showcase-Panel fuer das Hero-Video, unterhalb von Headline/CTAs */
+.hero-v3__showcase {
+  width: 100%;
+  margin-top: var(--space-16);
+}
+
+.hero-v3__showcase-panel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  box-shadow: var(--elevation-lg);
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 1120px) {
+  .hero-v3__showcase-panel {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+.hero-v3__showcase-panel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Trust-Bar v3: grosse, fette Zahlen mit viel Weissraum ---------------- */
+.trust-bar-v3 .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-48);
+  text-align: center;
+  border: none;
+  padding: var(--space-16) 0;
+}
+
+@media (min-width: 640px) {
+  .trust-bar-v3 .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1120px) {
+  .trust-bar-v3 .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-32);
+  }
+}
+
+.trust-bar-v3 .stat {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.trust-bar-v3 .stat__icon {
+  width: 56px;
+  height: 56px;
+}
+
+.trust-bar-v3 .stat__value {
+  font-size: var(--text-5xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.trust-bar-v3 .stat__label {
+  font-size: var(--text-base);
+}
+
+/* ---- Services: Bento-Grid ------------------------------------------------- */
+.bento-grid {
+  grid-template-columns: 1fr !important;
+}
+
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1120px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-auto-rows: minmax(160px, auto);
+  }
+
+  /* Erste Karte (Grundpflege = Kernleistung) nimmt mehr Flaeche ein */
+  .bento-grid > .card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-grid > .card:first-child .card__image {
+    height: 100%;
+    min-height: 260px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1119.98px) {
+  .bento-grid > .card:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* ---- Dark Section (Costs) -------------------------------------------------- */
+.section--dark {
+  background: var(--palette-brand-900);
+  position: relative;
+  overflow: hidden;
+}
+
+.section--dark .costs__title,
+.section--dark .costs__text,
+.section--dark .check-circle-item span,
+.section--dark .section-title,
+.section--dark .section-intro {
+  color: var(--color-text-inverse);
+}
+
+.section--dark .decor-blob {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ---- Grosszuegigere Innenabstaende (v3) ----------------------------------- */
+.card-v3 .card__body {
+  padding: var(--space-24);
+}
+
+@media (min-width: 1120px) {
+  .card-v3 .card__body {
+    padding: var(--space-32);
+  }
+}
+
+.testimonial-v3 {
+  padding: var(--space-40);
+}
+
+.team-member-v3 {
+  padding: var(--space-16);
+}
+
+/* ---- Hover-Microinteractions (nur neue Regeln, Basis bleibt unangetastet) - */
+.card,
+.testimonial,
+.team-member {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.card:focus-within,
+.testimonial:hover,
+.testimonial:focus-within,
+.team-member:hover,
+.team-member:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--elevation-lg), 0 0 0 1px var(--color-border-brand-soft);
+}
+
+/* ---- Section-Eyebrow (kleine, moderne Kicker-Zeile ueber Headlines) ------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-on-brand-tint);
+  background: var(--color-bg-brand-tint);
+  padding: var(--space-6) var(--space-16);
+  border-radius: var(--radius-full);
+  margin-inline: auto;
+}
+
+.section--dark .eyebrow {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-inverse);
+}

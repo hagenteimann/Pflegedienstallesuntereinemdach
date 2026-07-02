@@ -822,3 +822,27 @@
     animation: none;
   }
 }
+
+/* ---- Footer Versions-Switcher ------------------------------------------------------ */
+.footer-version-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.footer-version-switch__link {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer-version-switch__link:hover {
+  color: var(--color-text-brand);
+}
+
+.footer-version-switch__link.is-active {
+  color: var(--color-text-brand);
+  font-weight: 700;
+  text-decoration: underline;
+}

@@ -1,0 +1,129 @@
+/* ==========================================================================
+   VERSION 2 — OVERRIDES
+   Zusaetzliche, additive Klassen fuer strukturelle Abweichungen von v1.
+   Bestehende Klassen aus components.css/layout.css werden hier NICHT
+   umdefiniert, nur neue v2--praefixierte Klassen ergaenzt.
+   ========================================================================== */
+
+/* ---- Hero: Spalten vertauscht (Visual links, Content rechts) ------------- */
+.v2-hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+  padding-block: var(--space-48);
+}
+
+@media (min-width: 1120px) {
+  .v2-hero .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: var(--space-64);
+    padding-block: var(--space-64);
+  }
+
+  .v2-hero .hero__content {
+    flex: 1 1 60%;
+  }
+
+  .v2-hero .hero__visual {
+    flex: 1 1 40%;
+  }
+}
+
+/* Standort-Badges wandern direkt unter Headline/Lede, oberhalb der CTAs */
+.v2-hero .hero__locations {
+  order: -1;
+  padding-top: 0;
+}
+
+/* Kantigere Typografie: einzelnes Wort in Versalien mit weiterem Letter-Spacing */
+.v2-hero__accent {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Visual-Panel: kantigere Ecke statt der organischen v1-Rundung */
+.v2-hero .hero__visual-panel {
+  border-radius: var(--radius-24);
+}
+
+@media (min-width: 1120px) {
+  .v2-hero .hero__visual-panel {
+    border-radius: var(--radius-24);
+  }
+}
+
+/* ---- Trust-Bar: linksbuendige Leiste mit vertikalen Trennstrichen -------- */
+.v2-trust-bar {
+  background: var(--color-bg-subtle);
+  padding-block: var(--space-32);
+}
+
+.v2-trust-bar .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-24);
+}
+
+@media (min-width: 1120px) {
+  .v2-trust-bar .container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0;
+  }
+}
+
+.v2-trust-bar .stat {
+  padding-inline: 0;
+}
+
+@media (min-width: 1120px) {
+  .v2-trust-bar .stat {
+    padding-inline: var(--space-40);
+  }
+
+  .v2-trust-bar .stat:first-child {
+    padding-left: 0;
+  }
+
+  .v2-trust-bar .stat:not(:first-child) {
+    border-left: 1px solid var(--color-border-default);
+  }
+}
+
+/* ---- Services: duenne Kontur statt starkem Schatten-Fokus ---------------- */
+.v2-card {
+  box-shadow: none;
+  border: 1px solid var(--color-border-default);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.v2-card:hover {
+  border-color: var(--color-border-brand-soft);
+  transform: translateY(-2px);
+}
+
+/* ---- Kantiges Deko-Element statt .decor-blob ----------------------------- */
+.v2-decor-wedge {
+  position: absolute;
+  background: var(--color-bg-brand-tint);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.v2-why-us .v2-decor-wedge {
+  width: 900px;
+  height: 900px;
+  top: -380px;
+  left: -420px;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 70%);
+}
+
+.v2-costs .v2-decor-wedge {
+  width: 700px;
+  height: 700px;
+  bottom: -320px;
+  right: -280px;
+  clip-path: polygon(30% 0, 100% 20%, 100% 100%, 0% 100%);
+}

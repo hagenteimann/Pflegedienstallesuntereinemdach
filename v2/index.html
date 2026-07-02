@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="blau">
+<html lang="de" data-theme="rot">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pflegedienst alles unter einem Dach — Professionelle Pflege. Für Ihr Vertrauen.</title>
+<title>Pflegedienst alles unter einem Dach — Professionelle Pflege. Für Ihr Vertrauen. (Version 2)</title>
 <meta name="description" content="Ambulante Pflege in Düsseldorf &amp; Velbert: Grundpflege, Behandlungspflege, Haushaltshilfe u.v.m. — zuverlässig, einfühlsam, nah. Jetzt kostenlos beraten lassen." />
-<link rel="canonical" href="https://www.PLATZHALTER-DOMAIN.de/" />
+<link rel="canonical" href="https://www.PLATZHALTER-DOMAIN.de/v2/" />
 
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
-<meta name="theme-color" content="#016395" />
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+<meta name="theme-color" content="#c71902" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Pflegedienst alles unter einem Dach" />
@@ -21,14 +21,15 @@
 <meta property="og:locale" content="de_DE" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="preload" href="fonts/sora-800.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../fonts/sora-800.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
 
 <link rel="stylesheet" href="css/tokens.css" />
-<link rel="stylesheet" href="css/fonts.css" />
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/components.css" />
-<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="../css/fonts.css" />
+<link rel="stylesheet" href="../css/base.css" />
+<link rel="stylesheet" href="../css/components.css" />
+<link rel="stylesheet" href="../css/layout.css" />
+<link rel="stylesheet" href="css/overrides.css" />
 
 <script type="application/ld+json">
 {
@@ -68,7 +69,7 @@
 <header class="site-header">
   <div class="container">
     <a href="#top" class="logo" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-      <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+      <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
     </a>
 
     <nav class="nav-desktop" aria-label="Hauptnavigation">
@@ -100,16 +101,12 @@
 <main id="top">
 
   <!-- ============================== HERO ============================== -->
-  <section class="hero">
+  <section class="hero v2-hero">
     <div class="container">
       <div class="hero__content">
         <div class="hero__heading-group">
-          <h1 class="hero__title">Professionelle Pflege. <em>Für Ihr Vertrauen.</em></h1>
+          <h1 class="hero__title">Professionelle <span class="v2-hero__accent">Pflege</span>. <em>Für Ihr Vertrauen.</em></h1>
           <p class="hero__lede">Ambulante Pflegedienste mit Herz und Kompetenz — zuverlässig, einfühlsam und nah. Wir unterstützen Sie da, wo es am schönsten ist: zu Hause.</p>
-        </div>
-        <div class="hero__actions">
-          <a href="#kontakt" class="btn btn--primary">Jetzt Beratung anfordern</a>
-          <a href="#services" class="btn btn--secondary">Leistungen entdecken</a>
         </div>
         <div class="hero__locations">
           <div class="location">
@@ -127,11 +124,15 @@
             </div>
           </div>
         </div>
+        <div class="hero__actions">
+          <a href="#kontakt" class="btn btn--primary">Jetzt Beratung anfordern</a>
+          <a href="#services" class="btn btn--secondary">Leistungen entdecken</a>
+        </div>
       </div>
       <div class="hero__visual">
         <div class="hero__visual-panel">
-          <video class="hero__visual-img" width="1280" height="720" poster="assets/images/hero-visual-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Pflegefachkraft im warmherzigen Gespräch mit einem Bewohner im Rollstuhl">
-            <source src="assets/video/hero-video.mp4" type="video/mp4" />
+          <video class="hero__visual-img" width="1280" height="720" poster="../assets/images/hero-visual-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Pflegefachkraft im warmherzigen Gespräch mit einem Bewohner im Rollstuhl">
+            <source src="../assets/video/hero-video.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -139,7 +140,7 @@
   </section>
 
   <!-- ============================== TRUST BAR ============================== -->
-  <section class="trust-bar" aria-label="Vertrauenswerte">
+  <section class="trust-bar v2-trust-bar" aria-label="Vertrauenswerte">
     <div class="container">
       <div class="stat">
         <div class="stat__icon"><img src="assets/icons/history.svg" alt="" /></div>
@@ -168,48 +169,48 @@
         <p class="section-intro">Wir bieten ein breites Spektrum an ambulanter Versorgung, individuell auf Ihre Bedürfnisse zugeschnitten.</p>
       </div>
       <div class="services-grid">
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-grundpflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Pflegekraft unterstützt eine Seniorin bei der Grundpflege" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-grundpflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Pflegekraft unterstützt eine Seniorin bei der Grundpflege" />
           <div class="card__body">
             <h3 class="card__title">Grundpflege</h3>
             <p class="card__text">Unterstützung bei der täglichen Körperpflege, Ernährung und Mobilität.</p>
             <a href="#kontakt" class="card__link">Mehr erfahren <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-behandlungspflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Medizinische Behandlungspflege durch Fachpersonal" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-behandlungspflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Medizinische Behandlungspflege durch Fachpersonal" />
           <div class="card__body">
             <h3 class="card__title">Behandlungspflege</h3>
             <p class="card__text">Medizinische Versorgung wie Wundversorgung, Injektionen und Medikamentengabe.</p>
             <a href="#kontakt" class="card__link">Mehr erfahren <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-betreuung-demenz.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Einfühlsame Betreuung eines Menschen mit Demenz" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-betreuung-demenz.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Einfühlsame Betreuung eines Menschen mit Demenz" />
           <div class="card__body">
             <h3 class="card__title">Betreuung &amp; Demenz</h3>
             <p class="card__text">Einfühlsame Begleitung und kognitive Förderung für Menschen mit Demenz.</p>
             <a href="#kontakt" class="card__link">Mehr erfahren <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-haushaltshilfe.jpg" width="800" height="566" loading="lazy" decoding="async" alt="Haushaltshilfe unterstützt beim Einkaufen" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-haushaltshilfe.jpg" width="800" height="566" loading="lazy" decoding="async" alt="Haushaltshilfe unterstützt beim Einkaufen" />
           <div class="card__body">
             <h3 class="card__title">Haushaltshilfe</h3>
             <p class="card__text">Unterstützung im Haushalt, beim Einkaufen und bei der Wohnungsreinigung.</p>
             <a href="#kontakt" class="card__link">Mehr erfahren <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-palliativpflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Würdevolle Palliativpflege in vertrauter Umgebung" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-palliativpflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Würdevolle Palliativpflege in vertrauter Umgebung" />
           <div class="card__body">
             <h3 class="card__title">Palliativpflege</h3>
             <p class="card__text">Würdevolle Begleitung und Schmerzlinderung in der letzten Lebensphase.</p>
             <a href="#kontakt" class="card__link">Mehr erfahren <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/service-verhinderungspflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Verhinderungspflege als Vertretung für pflegende Angehörige" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/service-verhinderungspflege.jpg" width="800" height="533" loading="lazy" decoding="async" alt="Verhinderungspflege als Vertretung für pflegende Angehörige" />
           <div class="card__body">
             <h3 class="card__title">Verhinderungspflege</h3>
             <p class="card__text">Urlaubs- oder Krankheitsvertretung für pflegende Angehörige.</p>
@@ -253,11 +254,11 @@
   </section>
 
   <!-- ============================== WHY US ============================== -->
-  <section id="warum-uns" class="why-us section--brand">
-    <div class="decor-blob" style="width:1000px;height:1000px;top:-400px;left:-450px;"></div>
+  <section id="warum-uns" class="why-us section--brand v2-why-us">
+    <div class="v2-decor-wedge" aria-hidden="true"></div>
     <div class="container">
       <div class="why-us__visual">
-        <img src="assets/images/why-us-nursing.png" width="700" height="776" loading="lazy" decoding="async" alt="Pflegefachkraft mit Klemmbrett und Stethoskop" />
+        <img src="../assets/images/why-us-nursing.png" width="700" height="776" loading="lazy" decoding="async" alt="Pflegefachkraft mit Klemmbrett und Stethoskop" />
       </div>
       <div class="why-us__content">
         <div class="why-us__heading">
@@ -333,19 +334,19 @@
         </div>
         <div class="team-grid">
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-sarah-berger.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Sarah Berger" />
+            <img class="team-member__photo" src="../assets/images/team-sarah-berger.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Sarah Berger" />
             <div><p class="team-member__name">Sarah Berger</p><p class="team-member__role">Pflegeleitung</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-markus-weber.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Markus Weber" />
+            <img class="team-member__photo" src="../assets/images/team-markus-weber.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Markus Weber" />
             <div><p class="team-member__name">Markus Weber</p><p class="team-member__role">Pflegefachkraft</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-elena-petrova.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Elena Petrova" />
+            <img class="team-member__photo" src="../assets/images/team-elena-petrova.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Elena Petrova" />
             <div><p class="team-member__name">Elena Petrova</p><p class="team-member__role">Betreuungskraft</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-lukas-meyer.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Lukas Meyer" />
+            <img class="team-member__photo" src="../assets/images/team-lukas-meyer.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Lukas Meyer" />
             <div><p class="team-member__name">Lukas Meyer</p><p class="team-member__role">Wundexperte</p></div>
           </div>
         </div>
@@ -361,19 +362,19 @@
         </div>
         <div class="team-grid">
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-sarah-berger.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Sarah Berger" />
+            <img class="team-member__photo" src="../assets/images/team-sarah-berger.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Sarah Berger" />
             <div><p class="team-member__name">Sarah Berger</p><p class="team-member__role">Pflegeleitung</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-markus-weber.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Markus Weber" />
+            <img class="team-member__photo" src="../assets/images/team-markus-weber.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Markus Weber" />
             <div><p class="team-member__name">Markus Weber</p><p class="team-member__role">Pflegefachkraft</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-elena-petrova.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Elena Petrova" />
+            <img class="team-member__photo" src="../assets/images/team-elena-petrova.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Elena Petrova" />
             <div><p class="team-member__name">Elena Petrova</p><p class="team-member__role">Betreuungskraft</p></div>
           </div>
           <div class="team-member reveal">
-            <img class="team-member__photo" src="assets/images/team-lukas-meyer.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Lukas Meyer" />
+            <img class="team-member__photo" src="../assets/images/team-lukas-meyer.jpg" width="400" height="400" loading="lazy" decoding="async" alt="Lukas Meyer" />
             <div><p class="team-member__name">Lukas Meyer</p><p class="team-member__role">Wundexperte</p></div>
           </div>
         </div>
@@ -385,8 +386,8 @@
   </section>
 
   <!-- ============================== COSTS ============================== -->
-  <section class="costs section--brand">
-    <div class="decor-blob" style="width:700px;height:700px;bottom:-350px;right:-300px;"></div>
+  <section class="costs section--brand v2-costs">
+    <div class="v2-decor-wedge" aria-hidden="true"></div>
     <div class="container">
       <div class="costs__content">
         <h2 class="costs__title">Kosten &amp; Kassenleistungen</h2>
@@ -477,8 +478,8 @@
         <p class="section-intro">Aktuelle Pflegetipps, Neuigkeiten und Wissenswertes direkt für Sie.</p>
       </div>
       <div class="newsletter-grid">
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/newsletter-juni.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Sichere Morgentoilette zu Hause" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/newsletter-juni.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Sichere Morgentoilette zu Hause" />
           <div class="card__body">
             <div class="card__meta"><span class="card__meta-date">Juni 2025</span><span class="pill">Pflege-Tipp</span></div>
             <h3 class="card__title" style="font-size:1.25rem;">5 Tipps für eine sichere Morgentoilette zu Hause</h3>
@@ -486,8 +487,8 @@
             <a href="#" class="card__link">Mehr lesen <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/newsletter-mai.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Medikamentengabe sicher erklärt" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/newsletter-mai.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Medikamentengabe sicher erklärt" />
           <div class="card__body">
             <div class="card__meta"><span class="card__meta-date">Mai 2025</span><span class="pill">Wissenswert</span></div>
             <h3 class="card__title" style="font-size:1.25rem;">Medikamentengabe sicher und einfach erklärt</h3>
@@ -495,8 +496,8 @@
             <a href="#" class="card__link">Mehr lesen <img src="assets/icons/arrow-right.svg" alt="" /></a>
           </div>
         </article>
-        <article class="card reveal">
-          <img class="card__image" src="assets/images/newsletter-april.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Neuer Standort in Velbert" />
+        <article class="card v2-card reveal">
+          <img class="card__image" src="../assets/images/newsletter-april.jpg" width="900" height="394" loading="lazy" decoding="async" alt="Neuer Standort in Velbert" />
           <div class="card__body">
             <div class="card__meta"><span class="card__meta-date">April 2025</span><span class="pill">Neuigkeiten</span></div>
             <h3 class="card__title" style="font-size:1.25rem;">Neuer Standort in Velbert: Was das für Sie bedeutet</h3>
@@ -516,8 +517,8 @@
     <div class="container">
       <div class="brochure__visual reveal">
         <div class="brochure__stack">
-          <img class="brochure__page brochure__page--back" src="assets/images/Prospekt/seniorenprodukte-flyer.jpg" width="700" height="1274" loading="lazy" decoding="async" alt="" />
-          <img class="brochure__page brochure__page--front" src="assets/images/Prospekt/deckblatt.jpg" width="700" height="1272" loading="lazy" decoding="async" alt="Titelseite des Prospekts: Ihr persönlicher Produktberater" />
+          <img class="brochure__page brochure__page--back" src="../assets/images/Prospekt/seniorenprodukte-flyer.jpg" width="700" height="1274" loading="lazy" decoding="async" alt="" />
+          <img class="brochure__page brochure__page--front" src="../assets/images/Prospekt/deckblatt.jpg" width="700" height="1272" loading="lazy" decoding="async" alt="Titelseite des Prospekts: Ihr persönlicher Produktberater" />
         </div>
       </div>
       <div class="brochure__content reveal">
@@ -539,7 +540,7 @@
           </div>
         </div>
         <div>
-          <a href="assets/downloads/pflegeratgeber-prospekt.pdf" download class="btn btn--primary">PDF herunterladen</a>
+          <a href="../assets/downloads/pflegeratgeber-prospekt.pdf" download class="btn btn--primary">PDF herunterladen</a>
           <p class="brochure__meta">PDF · 2 Seiten · ca. 250 KB</p>
         </div>
       </div>
@@ -598,7 +599,7 @@
           </div>
           <div class="checkbox-row">
             <input type="checkbox" id="privacy-optin" name="privacy-optin" required />
-            <label for="privacy-optin">Ich erkläre mich mit den <a href="datenschutz.html" style="text-decoration:underline;">Datenschutzrichtlinien</a> einverstanden.</label>
+            <label for="privacy-optin">Ich erkläre mich mit den <a href="../datenschutz.html" style="text-decoration:underline;">Datenschutzrichtlinien</a> einverstanden.</label>
           </div>
         </div>
         <p class="lead-form__status" role="status" style="color:var(--color-text-inverse);font-weight:600;"></p>
@@ -635,7 +636,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#top" class="logo logo--inverse" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-          <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+          <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
         </a>
         <p>Ihr Partner für liebevolle und professionelle häusliche Pflege. Wir sind für Sie da — Tag und Nacht.</p>
       </div>
@@ -672,14 +673,14 @@
     <div class="footer-bottom">
       <p>© 2024 PflegePlus Pflegedienst GmbH. Alle Rechte vorbehalten.</p>
       <div class="footer-bottom__links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
+        <a href="../impressum.html">Impressum</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+        <a href="../agb.html">AGB</a>
       </div>
       <nav class="footer-version-switch" aria-label="Design-Version wählen">
-        <a href="index.html" class="footer-version-switch__link is-active" aria-current="page">Version 1</a>
-        <a href="v2/index.html" class="footer-version-switch__link">Version 2</a>
-        <a href="v3/index.html" class="footer-version-switch__link">Version 3</a>
+        <a href="../index.html" class="footer-version-switch__link">Version 1</a>
+        <a href="index.html" class="footer-version-switch__link is-active" aria-current="page">Version 2</a>
+        <a href="../v3/index.html" class="footer-version-switch__link">Version 3</a>
       </nav>
     </div>
   </div>
@@ -738,6 +739,6 @@
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
