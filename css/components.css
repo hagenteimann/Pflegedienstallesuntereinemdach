@@ -826,9 +826,23 @@
 /* ---- Footer Versions-Switcher ------------------------------------------------------ */
 .footer-version-switch {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--space-16);
   margin-top: var(--space-16);
+  /* Platz fuer den fixierten Chat-Widget-Toggle-Button (60px Durchmesser +
+     Abstand) reservieren, damit die Box selbst (nicht nur ihr Inhalt) nicht
+     mehr mit dem Button ueberlappt. margin-right statt padding-right, weil
+     .footer-bottom die Zeile per justify-content:space-between an den
+     rechten Rand druecken kann - margin schiebt die ganze Box weg, waehrend
+     padding die Box nur aufblaehen wuerde, ohne ihre rechte Kante zu verschieben. */
+  margin-right: calc(60px + var(--space-20) + var(--space-16));
+}
+
+@media (min-width: 768px) {
+  .footer-version-switch {
+    margin-right: calc(60px + var(--space-32) + var(--space-16));
+  }
 }
 
 .footer-version-switch__link {

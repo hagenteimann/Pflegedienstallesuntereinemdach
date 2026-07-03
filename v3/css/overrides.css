@@ -5,143 +5,193 @@
    components.css / layout.css werden NICHT umdefiniert.
    ========================================================================== */
 
-/* ---- Hero v3: Mesh-Hintergrund + zentrierte, groessere Headline ---------- */
+/* ---- Hero v3: Full-Bleed-Video + asymmetrisch ueberlappende Headline ------
+   Kinetische Editorial-Moderne statt zentriert-braver SaaS-Hero: das Video
+   reicht bis an den Viewport-Rand, die Headline liegt als grosser, linksbuendiger
+   Block darueber (Overlap statt sauberem Nebeneinander). */
 .hero-v3 {
   position: relative;
   overflow: hidden;
+  background: var(--palette-brand-900);
+  padding-block: var(--space-48) 0;
 }
 
 .hero-v3 .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-/* Dekorativer Gradient-Mesh-Hintergrund in Teal-Tinten. Rein dekorativ,
-   aria-hidden, liegt hinter dem Content — veraendert keine Lese-/Fokusreihenfolge. */
+/* Dekorativer Gradient-Mesh-Hintergrund in Teal-Tinten, committed statt dezent. */
 .mesh-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 15% 20%, var(--palette-brand-100) 0%, transparent 45%),
-    radial-gradient(circle at 85% 15%, var(--palette-brand-50) 0%, transparent 50%),
-    radial-gradient(circle at 50% 90%, var(--palette-brand-100) 0%, transparent 55%);
-  opacity: 0.9;
+    radial-gradient(circle at 12% 15%, rgba(2, 199, 143, 0.5) 0%, transparent 48%),
+    radial-gradient(circle at 88% 10%, rgba(2, 168, 119, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(1, 82, 58, 0.9) 0%, transparent 60%);
+  opacity: 1;
 }
 
-.hero-v3__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-32);
-  text-align: center;
-  max-width: 56rem;
-  margin-inline: auto;
-  padding-block: var(--space-32) 0;
-}
-
-.hero-v3__heading-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-24);
-  align-items: center;
-}
-
-/* Groessere Desktop-Typo-Stufe (nutzt die v3-eigene --text-6xl), bleibt aber
-   ueber die bestehende .hero__title-Basis aus layout.css responsive klein auf Mobile. */
-@media (min-width: 1120px) {
-  .hero-v3 .hero__title {
-    font-size: var(--text-6xl);
-    max-width: 44rem;
-  }
-}
-
-.hero-v3 .hero__lede {
-  max-width: 38rem;
-  margin-inline: auto;
-}
-
-.hero-v3 .hero__actions {
-  justify-content: center;
-}
-
-.hero-v3 .hero__locations {
-  justify-content: center;
-}
-
-/* Grosses, volles Showcase-Panel fuer das Hero-Video, unterhalb von Headline/CTAs */
-.hero-v3__showcase {
-  width: 100%;
-  margin-top: var(--space-16);
-}
-
-.hero-v3__showcase-panel {
+/* Full-Bleed-Videoflaeche: bricht bewusst aus dem Container aus, reicht an
+   den rechten Viewport-Rand; auf Mobile faellt sie sichtbar unter den Content. */
+.hero-v3__bleed {
   position: relative;
+  z-index: 1;
   width: 100%;
-  border-radius: var(--radius-24);
+  height: 56vw;
+  min-height: 280px;
+  max-height: 620px;
   overflow: hidden;
-  box-shadow: var(--elevation-lg);
-  aspect-ratio: 16 / 9;
+  margin-top: var(--space-32);
 }
 
 @media (min-width: 1120px) {
-  .hero-v3__showcase-panel {
-    aspect-ratio: 21 / 9;
+  .hero-v3__bleed {
+    position: absolute;
+    inset: 0 0 0 38%;
+    height: auto;
+    max-height: none;
+    margin-top: 0;
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
-.hero-v3__showcase-panel video {
+.hero-v3__bleed-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* ---- Trust-Bar v3: grosse, fette Zahlen mit viel Weissraum ---------------- */
-.trust-bar-v3 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-48);
-  text-align: center;
-  border: none;
-  padding: var(--space-16) 0;
+.hero-v3__bleed-tint {
+  display: none;
 }
 
-@media (min-width: 640px) {
-  .trust-bar-v3 .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.hero-v3__inner {
+  position: relative;
+  padding-block: 0 var(--space-32);
+}
+
+.hero-v3__heading-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+  text-align: left;
+  max-width: 34rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 1120px) {
-  .trust-bar-v3 .container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-32);
+  .hero-v3__heading-group {
+    max-width: 30rem;
+    padding-block: var(--space-64) var(--space-120);
   }
 }
 
-.trust-bar-v3 .stat {
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-16);
+.hero-v3 .eyebrow {
+  margin-inline: 0;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-text-inverse);
 }
 
-.trust-bar-v3 .stat__icon {
-  width: 56px;
-  height: 56px;
+.hero-v3 .hero__title,
+.hero-v3 .hero__lede {
+  color: var(--color-text-inverse);
 }
 
-.trust-bar-v3 .stat__value {
-  font-size: var(--text-5xl);
+/* Groessere Desktop-Typo-Stufe (nutzt die v3-eigene --text-6xl). */
+@media (min-width: 1120px) {
+  .hero-v3 .hero__title {
+    font-size: var(--text-6xl);
+    max-width: none;
+  }
+}
+
+.hero-v3 .hero__lede {
+  max-width: 26rem;
+  margin-inline: 0;
+}
+
+.hero-v3 .hero__actions {
+  justify-content: flex-start;
+}
+
+.hero-v3 .hero__locations {
+  justify-content: flex-start;
+}
+
+.hero-v3 .location__name,
+.hero-v3 .location__label {
+  color: var(--color-text-inverse);
+}
+
+.hero-v3 .location__icon {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ---- Trust-Statement v3: fliessende Editorial-Zeile statt Stat-Grid -------
+   Ersetzt bewusst das verbotene Hero-Metric-Template (grosse Zahl + Label).
+   Vier Aussagen als eine zusammenhaengende, unterschiedlich gewichtete
+   Fliesszeile — kein gleichfoermiges Grid, keine dominanten Ziffern. */
+.trust-bar-v3 {
+  background: var(--color-bg-default);
+  padding-block: var(--space-48);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.trust-bar-v3 .container {
+  display: block;
+  border: none;
+  padding: 0;
+}
+
+.trust-v3__line {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  max-width: 66rem;
+}
+
+@media (min-width: 768px) {
+  .trust-v3__line {
+    font-size: var(--text-3xl);
+  }
+}
+
+.trust-v3__item {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+/* Bewusst KEINE Teal-Textfarbe hier: Teal ist auf hellem Grund keine zulaessige
+   Fliesstextfarbe (Kontrast/A11y-Leitplanke). Differenzierung erfolgt rein
+   ueber Groesse/Gewicht statt Farbe. */
+.trust-v3__item--lg {
+  font-size: 1.2em;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
 }
 
-.trust-bar-v3 .stat__label {
-  font-size: var(--text-base);
+.trust-v3__item--accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
 }
 
-/* ---- Services: Bento-Grid ------------------------------------------------- */
+.trust-v3__sep {
+  color: var(--color-border-subtle);
+  margin-inline: var(--space-12);
+  font-weight: 400;
+}
+
+/* ---- Services: Bento-Grid --------------------------------------------------
+   Dramatischere Groessenunterschiede: EINE sehr dominante Karte (Grundpflege)
+   neben mehreren sehr kompakten Karten statt einer gleichmaessigen 2x-Grosse. */
 .bento-grid {
   grid-template-columns: 1fr !important;
 }
@@ -155,18 +205,59 @@
 @media (min-width: 1120px) {
   .bento-grid {
     grid-template-columns: repeat(4, 1fr) !important;
-    grid-auto-rows: minmax(160px, auto);
+    grid-auto-rows: minmax(128px, auto);
   }
 
-  /* Erste Karte (Grundpflege = Kernleistung) nimmt mehr Flaeche ein */
+  /* Erste Karte (Grundpflege = Kernleistung) dominiert die Komposition */
   .bento-grid > .card:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 3;
+    grid-row: span 3;
   }
 
   .bento-grid > .card:first-child .card__image {
     height: 100%;
-    min-height: 260px;
+    min-height: 320px;
+  }
+
+  .bento-grid > .card:first-child .card__title {
+    font-size: var(--text-3xl);
+  }
+
+  /* Restliche Karten bewusst kompakt: schmales Bildformat, wenig Text */
+  .bento-grid > .card:not(:first-child) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-grid > .card:not(:first-child) .card__image {
+    height: 96px;
+  }
+
+  .bento-grid > .card:not(:first-child) .card__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .bento-grid > .card:nth-child(2) {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+  }
+
+  .bento-grid > .card:nth-child(3) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .bento-grid > .card:nth-child(4) {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+  }
+
+  .bento-grid > .card:nth-child(5),
+  .bento-grid > .card:nth-child(6) {
+    grid-column: span 2;
   }
 }
 
@@ -250,4 +341,61 @@
 .section--dark .eyebrow {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-text-inverse);
+}
+
+/* ---- Diagonale Section-Uebergaenge -----------------------------------------
+   Ersetzt rechteckige Section-Grenzen durch schraege Schnitte fuer mehr
+   Bewegungsgefuehl. Nur auf Sections mit ausreichend Innenabstand eingesetzt,
+   damit Content nicht angeschnitten wird. */
+.section-v3-diagonal {
+  position: relative;
+}
+
+.section-v3-diagonal--top {
+  padding-top: calc(var(--space-64) + 48px);
+  clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+  background: var(--color-bg-default);
+}
+
+@media (min-width: 1120px) {
+  .section-v3-diagonal--top {
+    padding-top: calc(var(--space-100) + 80px);
+    clip-path: polygon(0 80px, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.section-v3-diagonal--bottom {
+  padding-bottom: var(--space-100);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--space-64)));
+}
+
+@media (min-width: 1120px) {
+  .section-v3-diagonal--bottom {
+    padding-bottom: var(--space-120);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--space-100)));
+  }
+}
+
+/* ---- Grosszuegige, ungleichmaessige Weissraum-Spruenge zwischen Sections --
+   Rhythmus statt Gleichmass: manche Uebergaenge sehr grosszuegig, andere
+   bewusst kompakt daneben. */
+@media (min-width: 1120px) {
+  #warum-uns {
+    padding-top: var(--space-160);
+  }
+
+  #team {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+  }
+
+  .costs {
+    padding-top: var(--space-160);
+    padding-bottom: var(--space-160);
+  }
+
+  .brochure {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
 }

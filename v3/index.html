@@ -69,7 +69,7 @@
 <header class="site-header">
   <div class="container">
     <a href="#top" class="logo" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-      <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+      <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
     </a>
 
     <nav class="nav-desktop" aria-label="Hauptnavigation">
@@ -103,68 +103,60 @@
   <!-- ============================== HERO ============================== -->
   <section class="hero hero-v3">
     <div class="mesh-bg" aria-hidden="true"></div>
+    <div class="hero-v3__bleed">
+      <video class="hero-v3__bleed-video" width="1280" height="720" poster="../assets/images/hero-visual-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Pflegefachkraft im warmherzigen Gespräch mit einem Bewohner im Rollstuhl">
+        <source src="../assets/video/hero-video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-v3__bleed-tint" aria-hidden="true"></div>
+    </div>
     <div class="container">
       <div class="hero-v3__inner">
         <div class="hero-v3__heading-group">
           <p class="eyebrow">Ambulante Pflege in Düsseldorf &amp; Velbert</p>
           <h1 class="hero__title">Professionelle Pflege. <em>Für Ihr Vertrauen.</em></h1>
           <p class="hero__lede">Ambulante Pflegedienste mit Herz und Kompetenz — zuverlässig, einfühlsam und nah. Wir unterstützen Sie da, wo es am schönsten ist: zu Hause.</p>
-        </div>
-        <div class="hero__actions">
-          <a href="#kontakt" class="btn btn--primary">Jetzt Beratung anfordern</a>
-          <a href="#services" class="btn btn--secondary">Leistungen entdecken</a>
-        </div>
-        <div class="hero__locations">
-          <div class="location">
-            <div class="location__icon"><img src="assets/icons/map-pin.svg" alt="" /></div>
-            <div>
-              <p class="location__name">Düsseldorf</p>
-              <p class="location__label">Standort</p>
-            </div>
+          <div class="hero__actions">
+            <a href="#kontakt" class="btn btn--primary">Jetzt Beratung anfordern</a>
+            <a href="#services" class="btn btn--secondary">Leistungen entdecken</a>
           </div>
-          <div class="location">
-            <div class="location__icon"><img src="assets/icons/map-pin.svg" alt="" /></div>
-            <div>
-              <p class="location__name">Velbert</p>
-              <p class="location__label">Standort</p>
+          <div class="hero__locations">
+            <div class="location">
+              <div class="location__icon"><img src="assets/icons/map-pin.svg" alt="" /></div>
+              <div>
+                <p class="location__name">Düsseldorf</p>
+                <p class="location__label">Standort</p>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="hero-v3__showcase">
-          <div class="hero-v3__showcase-panel">
-            <video class="hero__visual-img" width="1280" height="720" poster="../assets/images/hero-visual-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Pflegefachkraft im warmherzigen Gespräch mit einem Bewohner im Rollstuhl">
-              <source src="../assets/video/hero-video.mp4" type="video/mp4" />
-            </video>
+            <div class="location">
+              <div class="location__icon"><img src="assets/icons/map-pin.svg" alt="" /></div>
+              <div>
+                <p class="location__name">Velbert</p>
+                <p class="location__label">Standort</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================== TRUST BAR ============================== -->
+  <!-- ============================== TRUST STATEMENT ============================== -->
   <section class="trust-bar trust-bar-v3" aria-label="Vertrauenswerte">
     <div class="container">
-      <div class="stat">
-        <div class="stat__icon"><img src="assets/icons/history.svg" alt="" /></div>
-        <div><p class="stat__value">15+</p><p class="stat__label">Jahre Erfahrung</p></div>
-      </div>
-      <div class="stat">
-        <div class="stat__icon"><img src="assets/icons/users.svg" alt="" /></div>
-        <div><p class="stat__value">500+</p><p class="stat__label">betreute Familien</p></div>
-      </div>
-      <div class="stat">
-        <div class="stat__icon"><img src="assets/icons/shield-check.svg" alt="" /></div>
-        <div><p class="stat__value">TÜV</p><p class="stat__label">zertifiziert</p></div>
-      </div>
-      <div class="stat">
-        <div class="stat__icon"><img src="assets/icons/clock.svg" alt="" /></div>
-        <div><p class="stat__value">24/7</p><p class="stat__label">Erreichbar</p></div>
-      </div>
+      <p class="trust-v3__line">
+        <span class="trust-v3__item trust-v3__item--lg">15+ Jahre Erfahrung</span>
+        <span class="trust-v3__sep" aria-hidden="true">&mdash;</span>
+        <span class="trust-v3__item">über 500 betreute Familien vertrauen uns</span>
+        <span class="trust-v3__sep" aria-hidden="true">&mdash;</span>
+        <span class="trust-v3__item trust-v3__item--accent">TÜV-zertifiziert</span>
+        <span class="trust-v3__sep" aria-hidden="true">&mdash;</span>
+        <span class="trust-v3__item">rund um die Uhr erreichbar, 24/7</span>
+      </p>
     </div>
   </section>
 
   <!-- ============================== SERVICES ============================== -->
-  <section id="services">
+  <section id="services" class="section-v3-diagonal section-v3-diagonal--top">
     <div class="container">
       <div class="section-head">
         <h2 class="section-title">Unsere Pflegeleistungen</h2>
@@ -256,7 +248,7 @@
   </section>
 
   <!-- ============================== WHY US ============================== -->
-  <section id="warum-uns" class="why-us section--brand">
+  <section id="warum-uns" class="why-us section--brand section-v3-diagonal section-v3-diagonal--bottom">
     <div class="decor-blob" style="width:1000px;height:1000px;top:-400px;left:-450px;"></div>
     <div class="container">
       <div class="why-us__visual">
@@ -638,7 +630,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#top" class="logo logo--inverse" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-          <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+          <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
         </a>
         <p>Ihr Partner für liebevolle und professionelle häusliche Pflege. Wir sind für Sie da — Tag und Nacht.</p>
       </div>

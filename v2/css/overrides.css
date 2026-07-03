@@ -1,62 +1,204 @@
 /* ==========================================================================
    VERSION 2 — OVERRIDES
-   Zusaetzliche, additive Klassen fuer strukturelle Abweichungen von v1.
-   Bestehende Klassen aus components.css/layout.css werden hier NICHT
-   umdefiniert, nur neue v2--praefixierte Klassen ergaenzt.
+   Design-Richtung: "Dossier / Editorial-Kantig" — ein selbstbewusstes,
+   gedrucktes Pflege-Dossier neu interpretiert fuer Web. Zusaetzliche,
+   additive Klassen fuer strukturelle Abweichungen von v1. Bestehende
+   Klassen aus components.css/layout.css werden hier NICHT umdefiniert,
+   nur neue v2--praefixierte Klassen ergaenzt.
    ========================================================================== */
 
-/* ---- Hero: Spalten vertauscht (Visual links, Content rechts) ------------- */
+/* ---- Neue additive Tokens (Dossier-Optik) -------------------------------- */
+.v2-hero,
+.v2-dossier-cover,
+[class^="v2-"] {
+  --v2-ink: var(--palette-gray-800);
+  --v2-hairline: var(--palette-gray-300);
+  --v2-index-color: rgba(199, 25, 2, 0.08);
+}
+
+/* ---- Section-Nummerierung: grosse, blasse Hintergrund-Ziffer ------------- */
+.v2-section-index {
+  position: relative;
+}
+
+.v2-section-index::before {
+  content: none;
+}
+
+.v2-section-index > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.v2-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.v2-section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-text-brand);
+}
+
+/* ==========================================================================
+   HERO — Dossier-Titelblatt
+   ========================================================================== */
+.v2-dossier-cover {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--v2-hairline);
+  /* Ueberschreibt die generische `section { padding-block: var(--space-100) }`
+     Regel (siehe ../css/layout.css), die sonst zusaetzlich zum eigenen
+     Container-Padding eine grosse Leerflaeche vor der Trust-Bar erzeugt. */
+  padding-block: var(--space-32) 0;
+}
+
+.v2-dossier-cover__kicker {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: var(--space-16) 0 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 1120px) {
+  .v2-dossier-cover__kicker {
+    text-align: left;
+  }
+}
+
 .v2-hero .container {
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
-  padding-block: var(--space-48);
+  padding-block: var(--space-32) var(--space-48);
 }
 
 @media (min-width: 1120px) {
   .v2-hero .container {
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: var(--space-64);
-    padding-block: var(--space-64);
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    grid-template-rows: auto auto;
+    align-items: end;
+    gap: 0;
+    padding-block: var(--space-32) 0;
+  }
+
+  .v2-dossier-cover__kicker {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
   }
 
   .v2-hero .hero__content {
-    flex: 1 1 60%;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    position: relative;
+    z-index: 2;
+    padding-right: var(--space-48);
+    padding-bottom: var(--space-64);
   }
 
   .v2-hero .hero__visual {
-    flex: 1 1 40%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    /* Bild bricht bewusst aus dem Container aus */
+    margin-right: calc(var(--side-padding) * -1);
   }
 }
 
 /* Standort-Badges wandern direkt unter Headline/Lede, oberhalb der CTAs */
+.v2-hero .hero__heading-group {
+  order: 0;
+}
+
 .v2-hero .hero__locations {
-  order: -1;
+  order: 1;
   padding-top: 0;
 }
 
-/* Kantigere Typografie: einzelnes Wort in Versalien mit weiterem Letter-Spacing */
-.v2-hero__accent {
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+.v2-hero .hero__actions {
+  order: 2;
 }
 
-/* Visual-Panel: kantigere Ecke statt der organischen v1-Rundung */
-.v2-hero .hero__visual-panel {
-  border-radius: var(--radius-24);
+/* Extreme Typo-Kontraste: riesige, sehr fette Headline */
+.v2-dossier-title {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.02;
 }
 
 @media (min-width: 1120px) {
-  .v2-hero .hero__visual-panel {
-    border-radius: var(--radius-24);
+  .v2-dossier-title {
+    /* ragt optisch ueber die Bildkante hinaus (siehe negative margin am Visual) */
+    margin-bottom: 0;
   }
 }
 
-/* ---- Trust-Bar: linksbuendige Leiste mit vertikalen Trennstrichen -------- */
+.v2-hero__accent {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 900;
+}
+
+.v2-hero .hero__lede {
+  font-weight: 400;
+  font-size: var(--text-base);
+  max-width: 28rem;
+}
+
+/* Visual: scharfe Kante statt organischer Rundung, dezenter Duotone-Touch */
+.v2-dossier-visual {
+  position: relative;
+}
+
+.v2-dossier-visual__panel.hero__visual-panel {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--v2-hairline);
+}
+
+@media (min-width: 1120px) {
+  .v2-dossier-visual__panel.hero__visual-panel {
+    height: 620px;
+    min-height: 0;
+  }
+}
+
+.v2-dossier-visual__caption {
+  margin-top: var(--space-12);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  text-align: right;
+  border-top: 1px solid var(--v2-hairline);
+  padding-top: var(--space-8);
+}
+
+/* ==========================================================================
+   TRUST BAR — volle Trennlinien statt Karten-Look
+   ========================================================================== */
 .v2-trust-bar {
-  background: var(--color-bg-subtle);
+  background: var(--color-bg-default);
   padding-block: var(--space-32);
+  border-bottom: 1px solid var(--v2-hairline);
 }
 
 .v2-trust-bar .container {
@@ -69,7 +211,7 @@
   .v2-trust-bar .container {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 0;
   }
 }
@@ -83,28 +225,133 @@
     padding-inline: var(--space-40);
   }
 
-  .v2-trust-bar .stat:first-child {
-    padding-left: 0;
-  }
-
   .v2-trust-bar .stat:not(:first-child) {
-    border-left: 1px solid var(--color-border-default);
+    border-left: 1px solid var(--v2-hairline);
   }
 }
 
-/* ---- Services: duenne Kontur statt starkem Schatten-Fokus ---------------- */
+.v2-trust-bar .stat__icon {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--v2-hairline);
+  background: transparent;
+}
+
+/* ==========================================================================
+   SERVICES — volle Rahmen, eine bewusst groessere Karte (Asymmetrie)
+   ========================================================================== */
+.v2-services.v2-section-index {
+  padding-block: var(--space-120);
+}
+
+.v2-services .section-head {
+  text-align: left;
+  max-width: 40rem;
+  margin-inline: 0;
+}
+
+.v2-services .section-intro {
+  margin-inline: 0;
+  text-align: left;
+}
+
+@media (min-width: 1120px) {
+  .v2-services .services-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .v2-services .services-grid > .card:nth-child(1) {
+    grid-column: span 4;
+  }
+
+  .v2-services .services-grid > .card:nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .v2-services .services-grid > .card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .v2-services .services-grid > .card:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  .v2-services .services-grid > .card:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .v2-services .services-grid > .card:nth-child(6) {
+    grid-column: span 4;
+  }
+}
+
 .v2-card {
   box-shadow: none;
-  border: 1px solid var(--color-border-default);
+  border-radius: 0;
+  border: 1px solid var(--v2-hairline);
+  border-top: 1px solid var(--v2-hairline);
+  border-bottom: 3px solid var(--v2-hairline);
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
+.v2-card .card__image {
+  border-radius: 0;
+}
+
 .v2-card:hover {
-  border-color: var(--color-border-brand-soft);
+  border-bottom-color: var(--color-text-brand);
   transform: translateY(-2px);
 }
 
-/* ---- Kantiges Deko-Element statt .decor-blob ----------------------------- */
+/* ==========================================================================
+   HOW IT WORKS — Schritt-Nummern gross, Linie statt Kreisschatten
+   ========================================================================== */
+.v2-steps {
+  padding-block: var(--space-80);
+}
+
+.v2-steps .steps-grid .step {
+  align-items: flex-start;
+  text-align: left;
+  gap: var(--space-16);
+  border-top: 1px solid var(--v2-hairline);
+  padding-top: var(--space-24);
+}
+
+.v2-steps .step__number {
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  width: auto;
+  height: auto;
+  font-size: var(--text-6xl);
+  font-weight: 900;
+  color: var(--v2-index-color, rgba(199, 25, 2, 0.16));
+  line-height: 1;
+}
+
+.v2-steps .step--active .step__number {
+  background: transparent;
+  color: var(--color-text-brand);
+}
+
+/* ==========================================================================
+   WHY US — kantiger Deko-Keil (ausgebaut, dominanter)
+   ========================================================================== */
+.v2-why-us {
+  padding-block: var(--space-160) var(--space-120);
+}
+
+.v2-why-us .check-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  padding-bottom: var(--space-16);
+}
+
+.v2-why-us .check-list {
+  gap: var(--space-16);
+}
+
 .v2-decor-wedge {
   position: absolute;
   background: var(--color-bg-brand-tint);
@@ -113,17 +360,256 @@
 }
 
 .v2-why-us .v2-decor-wedge {
-  width: 900px;
-  height: 900px;
-  top: -380px;
-  left: -420px;
-  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 70%);
+  width: 1100px;
+  height: 1100px;
+  top: -460px;
+  left: -520px;
+  clip-path: polygon(0 0, 100% 0, 62% 100%, 0% 62%);
+  opacity: 0.08;
 }
 
 .v2-costs .v2-decor-wedge {
-  width: 700px;
-  height: 700px;
-  bottom: -320px;
-  right: -280px;
-  clip-path: polygon(30% 0, 100% 20%, 100% 100%, 0% 100%);
+  width: 820px;
+  height: 820px;
+  bottom: -360px;
+  right: -320px;
+  clip-path: polygon(38% 0, 100% 14%, 100% 100%, 0% 100%);
+  opacity: 0.08;
+}
+
+/* ==========================================================================
+   TESTIMONIALS — grosses Pull-Quote + zwei kompakte daneben
+   ========================================================================== */
+.v2-testimonials.v2-section-index {
+  padding-block: var(--space-120);
+}
+
+.v2-testimonials .testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+
+@media (min-width: 1024px) {
+  .v2-testimonials .testimonials-grid {
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto auto;
+  }
+
+  .v2-testimonials .testimonial:first-child {
+    grid-row: 1 / 3;
+  }
+}
+
+.v2-testimonials .testimonial {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--v2-hairline);
+  border-top: 3px solid var(--color-text-brand);
+}
+
+.v2-testimonials .testimonial:first-child {
+  position: relative;
+  padding-top: var(--space-64);
+  justify-content: center;
+}
+
+/* Sterne-Reihe bekommt eigenen soliden Hintergrund + hoeheren Stapelkontext,
+   damit das dekorative Anführungszeichen (::before) in keinem Fall optisch
+   durchscheint, selbst wenn sich Positionswerte durch Content-Aenderungen
+   verschieben sollten. */
+.v2-testimonials .testimonial:first-child .testimonial__stars {
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg-default);
+  margin-top: var(--space-24);
+}
+
+.v2-testimonials .testimonial:first-child::before {
+  content: '\201C';
+  position: absolute;
+  /* Beginnt erst auf Hoehe des Zitat-Texts (unterhalb von Padding + Sterne-Reihe),
+     damit es die 5-Sterne-Bewertung darueber nicht mehr ueberlappt ("Geister-
+     Sternreihe"-Bug). Liegt zusaetzlich per z-index klar hinter den Sternen. */
+  top: var(--space-80);
+  left: var(--space-24);
+  z-index: 1;
+  font-family: var(--font-accent);
+  font-size: 7rem;
+  line-height: 1;
+  color: var(--v2-index-color, rgba(199, 25, 2, 0.14));
+  font-weight: 700;
+}
+
+.v2-testimonials .testimonial:first-child .testimonial__quote {
+  position: relative;
+  z-index: 2;
+}
+
+.v2-testimonials .testimonial:first-child .testimonial__quote {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  font-size: var(--text-3xl);
+  line-height: 1.35;
+}
+
+.v2-testimonials .testimonial:not(:first-child) {
+  padding: var(--space-24);
+  gap: var(--space-16);
+}
+
+.v2-testimonials .testimonial:not(:first-child) .testimonial__quote {
+  font-size: var(--text-base);
+}
+
+/* ==========================================================================
+   TEAM — Trennlinie statt Location-Card-Gefuehl
+   ========================================================================== */
+.v2-team {
+  padding-block: var(--space-100);
+}
+
+.v2-team .team-location {
+  border-top: 1px solid var(--v2-hairline);
+  padding-top: var(--space-48);
+}
+
+.v2-team .team-location:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.v2-team .team-location__head {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.v2-team .team-member__photo {
+  border-radius: var(--radius-4);
+}
+
+/* ==========================================================================
+   COSTS
+   ========================================================================== */
+.v2-costs .overview-card {
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--color-bg-default);
+}
+
+.v2-costs .overview-card__row {
+  border-bottom: 1px solid var(--v2-hairline);
+}
+
+/* Mobile: der fixierte Chat-Widget-FAB (#chatToggle, ~60px + Sicherheitsabstand)
+   liegt unten rechts im Viewport und kann die rechte Werte-Spalte der
+   Kostentransparenz-Tabelle ueberlappen. Statt den globalen FAB zu verschieben
+   (siehe separater Fix), bekommt die Zeile hier auf Mobile-Breakpoints extra
+   Platz nach rechts, damit die Werte ("Kostenlos", "Inklusive" ...) nicht in
+   die untere rechte Randzone (~70px) hineinreichen. */
+@media (max-width: 767px) {
+  .v2-costs .overview-card {
+    padding-bottom: calc(var(--space-32) + 70px);
+  }
+
+  .v2-costs .overview-card__row {
+    padding-right: var(--space-24);
+    gap: var(--space-16);
+  }
+
+  .v2-costs .overview-card__row span:last-child {
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+
+/* ==========================================================================
+   FAQ — nummeriert, volle Linie statt Subtle-Background-Card
+   ========================================================================== */
+.v2-faq.v2-section-index {
+  padding-block: var(--space-100);
+}
+
+.v2-faq .accordion-item {
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid var(--v2-hairline);
+}
+
+.v2-faq .accordion-item:first-child {
+  border-top: 1px solid var(--v2-hairline);
+}
+
+/* ==========================================================================
+   NEWSLETTER
+   ========================================================================== */
+.v2-newsletter {
+  padding-block: var(--space-80);
+}
+
+.v2-newsletter .v2-card .card__title {
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   BROCHURE
+   ========================================================================== */
+.v2-brochure {
+  padding-block: var(--space-120);
+}
+
+.v2-brochure .brochure__page {
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   LEAD CAPTURE
+   ========================================================================== */
+.v2-lead {
+  padding-block: var(--space-100);
+}
+
+.v2-lead .field__input,
+.v2-lead .field__select,
+.v2-lead .field__textarea {
+  border-radius: 0;
+  border-bottom: 2px solid var(--color-bg-brand-tint);
+}
+
+/* ==========================================================================
+   SOCIAL FOLLOW
+   ========================================================================== */
+.v2-social-follow {
+  padding-block: var(--space-64);
+}
+
+.v2-social-follow .social-icon {
+  border-radius: var(--radius-4);
+  box-shadow: none;
+  border: 1px solid var(--v2-hairline);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.v2-footer .footer-column h4 {
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.v2-footer .footer-certificates .certificate-badge {
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .v2-card,
+  .v2-hero .hero__visual,
+  .brochure__page--front,
+  .brochure__page--back {
+    transition: none;
+  }
 }

@@ -69,7 +69,7 @@
 <header class="site-header">
   <div class="container">
     <a href="#top" class="logo" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-      <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+      <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
     </a>
 
     <nav class="nav-desktop" aria-label="Hauptnavigation">
@@ -101,11 +101,12 @@
 <main id="top">
 
   <!-- ============================== HERO ============================== -->
-  <section class="hero v2-hero">
+  <section class="hero v2-hero v2-dossier-cover">
     <div class="container">
+      <p class="v2-dossier-cover__kicker">Dossier N° 01 — Ambulante Pflege Düsseldorf &amp; Velbert</p>
       <div class="hero__content">
         <div class="hero__heading-group">
-          <h1 class="hero__title">Professionelle <span class="v2-hero__accent">Pflege</span>. <em>Für Ihr Vertrauen.</em></h1>
+          <h1 class="hero__title v2-dossier-title">Professionelle <span class="v2-hero__accent">Pflege</span>. <em>Für Ihr Vertrauen.</em></h1>
           <p class="hero__lede">Ambulante Pflegedienste mit Herz und Kompetenz — zuverlässig, einfühlsam und nah. Wir unterstützen Sie da, wo es am schönsten ist: zu Hause.</p>
         </div>
         <div class="hero__locations">
@@ -129,8 +130,8 @@
           <a href="#services" class="btn btn--secondary">Leistungen entdecken</a>
         </div>
       </div>
-      <div class="hero__visual">
-        <div class="hero__visual-panel">
+      <div class="hero__visual v2-dossier-visual">
+        <div class="hero__visual-panel v2-dossier-visual__panel">
           <video class="hero__visual-img" width="1280" height="720" poster="../assets/images/hero-visual-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Pflegefachkraft im warmherzigen Gespräch mit einem Bewohner im Rollstuhl">
             <source src="../assets/video/hero-video.mp4" type="video/mp4" />
           </video>
@@ -162,9 +163,10 @@
   </section>
 
   <!-- ============================== SERVICES ============================== -->
-  <section id="services">
+  <section id="services" class="v2-services v2-section-index" data-index="02">
     <div class="container">
       <div class="section-head">
+        <p class="v2-section-eyebrow">Leistungskatalog</p>
         <h2 class="section-title">Unsere Pflegeleistungen</h2>
         <p class="section-intro">Wir bieten ein breites Spektrum an ambulanter Versorgung, individuell auf Ihre Bedürfnisse zugeschnitten.</p>
       </div>
@@ -222,9 +224,10 @@
   </section>
 
   <!-- ============================== HOW IT WORKS ============================== -->
-  <section class="section--subtle">
+  <section class="section--subtle v2-steps">
     <div class="container">
       <div class="section-head">
+        <p class="v2-section-eyebrow">Ablauf</p>
         <h2 class="section-title">In 3 Schritten zur Pflege</h2>
       </div>
       <div class="steps-grid">
@@ -293,9 +296,10 @@
   </section>
 
   <!-- ============================== TESTIMONIALS ============================== -->
-  <section>
+  <section class="v2-testimonials v2-section-index" data-index="04">
     <div class="container">
       <div class="section-head">
+        <p class="v2-section-eyebrow">Erfahrungsberichte</p>
         <h2 class="section-title">Das sagen unsere Familien</h2>
       </div>
       <div class="testimonials-grid">
@@ -325,7 +329,7 @@
   </section>
 
   <!-- ============================== TEAM ============================== -->
-  <section id="team" class="section--subtle">
+  <section id="team" class="section--subtle v2-team">
     <div class="container">
       <div class="team-location">
         <div class="team-location__head">
@@ -415,9 +419,10 @@
   </section>
 
   <!-- ============================== FAQ ============================== -->
-  <section>
+  <section class="v2-faq v2-section-index" data-index="06">
     <div class="container">
       <div class="section-head">
+        <p class="v2-section-eyebrow">Fragen &amp; Antworten</p>
         <h2 class="section-title">Häufige Fragen</h2>
       </div>
       <div class="accordion">
@@ -471,9 +476,10 @@
   </section>
 
   <!-- ============================== NEWSLETTER ============================== -->
-  <section class="section--subtle">
+  <section class="section--subtle v2-newsletter">
     <div class="container">
       <div class="section-head">
+        <p class="v2-section-eyebrow">Aktuelles</p>
         <h2 class="section-title">Unser Newsletter – Immer gut informiert</h2>
         <p class="section-intro">Aktuelle Pflegetipps, Neuigkeiten und Wissenswertes direkt für Sie.</p>
       </div>
@@ -513,7 +519,7 @@
   </section>
 
   <!-- ============================== BROCHURE DOWNLOAD ============================== -->
-  <section class="brochure">
+  <section class="brochure v2-brochure">
     <div class="container">
       <div class="brochure__visual reveal">
         <div class="brochure__stack">
@@ -548,7 +554,8 @@
   </section>
 
   <!-- ============================== LEAD CAPTURE ============================== -->
-  <section id="kontakt" class="section--brand">
+  <section id="kontakt" class="section--brand v2-lead">
+    <div class="v2-decor-wedge" aria-hidden="true"></div>
     <div class="container">
       <div class="section-head section-head--inverse">
         <h2 class="section-title">Jetzt kostenlos und unverbindlich beraten lassen</h2>
@@ -608,7 +615,7 @@
   </section>
 
   <!-- ============================== SOCIAL FOLLOW ============================== -->
-  <section class="social-follow section--subtle">
+  <section class="social-follow section--subtle v2-social-follow">
     <div class="container">
       <div class="social-follow__inner reveal">
         <h2 class="social-follow__title">Folgen Sie uns</h2>
@@ -631,12 +638,12 @@
 </main>
 
 <!-- ============================== FOOTER ============================== -->
-<footer class="site-footer">
+<footer class="site-footer v2-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="#top" class="logo logo--inverse" aria-label="Pflegedienst alles unter einem Dach — Startseite">
-          <img class="logo__full" src="../assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
+          <img class="logo__full" src="assets/logo/logo.svg" alt="Pflegedienst alles unter einem Dach" width="900" height="236" />
         </a>
         <p>Ihr Partner für liebevolle und professionelle häusliche Pflege. Wir sind für Sie da — Tag und Nacht.</p>
       </div>
