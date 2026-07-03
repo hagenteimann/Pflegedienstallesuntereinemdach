@@ -485,9 +485,6 @@
   align-items: flex-start;
 }
 
-.v2-team .team-member__photo {
-  border-radius: var(--radius-4);
-}
 
 /* ==========================================================================
    COSTS

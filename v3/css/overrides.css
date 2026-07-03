@@ -155,6 +155,8 @@
   font-weight: 500;
   color: var(--color-text-secondary);
   max-width: 66rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
