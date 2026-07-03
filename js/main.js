@@ -212,4 +212,38 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  /* Hero-Parallax (nur Version 3): Video verschiebt sich beim Scrollen sanft
+     langsamer als der Rest der Seite. Greift nur, wenn .hero-v3__bleed-video
+     existiert (v1/v2 haben dieses Element nicht) und respektiert
+     prefers-reduced-motion, indem der Listener dann gar nicht erst gesetzt wird. */
+  const heroParallaxVideo = document.querySelector('.hero-v3__bleed-video');
+  const heroParallaxBleed = document.querySelector('.hero-v3__bleed');
+  if (heroParallaxVideo && heroParallaxBleed && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const maxShift = 180;
+    let ticking = false;
+
+    const updateHeroParallax = () => {
+      const rect = heroParallaxBleed.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      const progress = 1 - (rect.top + rect.height) / (viewportH + rect.height);
+      const clamped = Math.min(Math.max(progress, 0), 1);
+      const offset = (clamped - 0.5) * maxShift;
+      heroParallaxVideo.style.transform = `translateY(${offset}px) scale(1.28)`;
+      ticking = false;
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeroParallax);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+
+    updateHeroParallax();
+  }
 });
