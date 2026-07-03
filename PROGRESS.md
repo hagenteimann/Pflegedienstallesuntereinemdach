@@ -1,6 +1,6 @@
 # Fortschritt: Version 2 & Version 3 Landingpages
 
-Letzter Stand: 2026-07-02, Phase 1+2 abgeschlossen (v2/index.html und v3/index.html vollständig gebaut und von den Build-Agenten funktional verifiziert), auf Nutzerwunsch gepusht. Der abschließende Opus-Review-Pass wurde auf Nutzerwunsch VORZEITIG ABGEBROCHEN, bevor er ein Endurteil abgeben konnte — letzter Zwischenstand des Agents: Services-Grid in v3 lud gerade neu (3 Spalten korrekt bei 347px Breite, evtl. optisch leer wirkend wegen .reveal-Scroll-Animation mit opacity:0 vor dem Sichtbarwerden), kein Bug bestätigt, aber auch keine vollständige Freigabe erteilt.
+Letzter Stand: 2026-07-03, Phase 3 (finale Verifikation) abgeschlossen. Alle 3 Versionen per Preview-Server (Desktop 1280px) Screenshot- und computed-style-geprüft und freigegeben. Der Verdacht "v3-Bento-Karten wirken leer wegen .reveal-Animation" wurde WIDERLEGT: nach Scroll in den Viewport haben alle 6 Karten opacity:1 (reveal--pending entfernt), Bilder/Text sichtbar. Footer-Switcher in allen 3 Versionen korrekt (Ziel-URLs + aktive Version fett/unterstrichen/Markenfarbe/aria-current). Wichtiger Test-Hinweis: `serve` normalisiert `/v3/index.html` -> `/v3` (ohne Slash), wodurch relative CSS-Pfade fälschlich gegen Root auflösen und die Blau-Tokens statt Teal geladen werden — beim Testen/Verlinken IMMER mit Trailing-Slash (`/v3/`, `/v2/`) aufrufen, dann korrekt.
 
 Plan-Datei (Details/Begründungen): `C:\Users\Hagen\.claude\plans\graceful-cuddling-koala.md`
 
@@ -57,7 +57,12 @@ Plan-Datei (Details/Begründungen): `C:\Users\Hagen\.claude\plans\graceful-cuddl
 - [x] Visuell verifiziert (Desktop + Mobile, via preview_inspect/eval — Screenshot-Tool zeitweise nicht verfügbar, Styles/Layout/Verhalten computed-style-geprüft)
 
 ## Phase 3 — Verifikation
-- [ ] Preview-Server gestartet, alle 3 Versionen erreichbar
-- [ ] Footer-Switcher-Links in allen 3 Versionen getestet (korrekte Ziel-URLs)
-- [ ] v1 (Root index.html, components.css) nur additiv verändert (git diff geprüft)
-- [ ] Offene Punkte / nächste Schritte: (wird befüllt, falls Zeit nicht reicht)
+- [x] Preview-Server gestartet, alle 3 Versionen erreichbar (mit Trailing-Slash `/v2/`, `/v3/`)
+- [x] Footer-Switcher-Links in allen 3 Versionen getestet (korrekte Ziel-URLs, aktive Version fett+unterstrichen+Markenfarbe+aria-current="page")
+- [x] v3-Bento-Services-Grid verifiziert: alle 6 Karten opacity:1 nach Scroll, kein Leer-Bug (Verdacht widerlegt); v2 Services 3×2-Grid kantig, opacity:1
+- Kritisches Kurzurteil:
+  - v2 (rot) wirkt spürbar anders/kantiger als v1: umgekehrter Hero-Split (Bild links/Text rechts), Standort-Badges oben, Versal-Headline, 8px-Radien, rote Akzente. Bestanden.
+  - v3 (teal) wirkt hochmodern/US-SaaS-artig: zentriertes Hero mit Mesh-Gradient, große Typo, Bento-Grid für Services, teal. Bestanden.
+  - v1 (blau): Text links / Bild im organischen Blob rechts. Alle 3 klar unterscheidbar.
+  - Keine visuellen Bugs gefunden.
+- Offene Punkte / nächste Schritte: Keine offenen Punkte, alle 3 Versionen freigegeben. (Nur Betriebshinweis: relative Pfade brauchen Trailing-Slash-URLs bzw. eine Server-Config, die `/v3` -> `/v3/` redirectet, damit die versionseigenen Tokens laden — auf GitHub Pages mit `/v3/`-Verzeichnis-URLs ist das automatisch der Fall.)
