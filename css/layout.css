@@ -232,12 +232,14 @@ section {
 
 @media (min-width: 1120px) {
   .hero__title {
-    font-size: var(--text-6xl);
-    line-height: 1.1;
+    font-size: 3.25rem;
+    line-height: 1.15;
   }
 }
 
 .hero__title em {
+  display: block;
+  margin-top: var(--space-8);
   font-family: var(--font-accent);
   font-style: italic;
   font-weight: 600;

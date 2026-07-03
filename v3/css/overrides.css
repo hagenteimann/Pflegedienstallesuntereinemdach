@@ -114,10 +114,11 @@
   color: var(--color-text-inverse);
 }
 
-/* Groessere Desktop-Typo-Stufe (nutzt die v3-eigene --text-6xl). */
+/* Groessere Desktop-Typo-Stufe, aber moderat genug fuer die laengere Headline. */
 @media (min-width: 1120px) {
   .hero-v3 .hero__title {
-    font-size: var(--text-6xl);
+    font-size: 3.5rem;
+    line-height: 1.15;
     max-width: none;
   }
 }
