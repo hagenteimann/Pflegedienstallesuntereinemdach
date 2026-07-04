@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessageInput.value = '';
         window.setTimeout(() => {
           addBubble(
-            'Vielen Dank für Ihre Nachricht! Für eine individuelle Beratung zu unseren Leistungen füllen Sie gerne unser Kontaktformular aus oder rufen Sie uns direkt an — wir melden uns werktags innerhalb von 24 Stunden.',
+            'Vielen Dank für Ihre Nachricht! Für eine individuelle Beratung zu unseren Leistungen füllen Sie gerne unser Kontaktformular aus oder rufen Sie uns direkt an. Wir melden uns werktags innerhalb von 24 Stunden.',
             'bot'
           );
         }, 500);
